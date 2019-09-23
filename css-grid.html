@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS GRID</title>
+	<style>
+		thml, body{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+			background: #7159c1;
+		}
+		header{
+			background:yellow;
+			grid-column-start: 1; /* para fazer o header ocupar todo o espaço de cima */
+			grid-column-end: 3;   /* para fazer o header ocupar todo o espaço de cima */
+			grid-row-start:3;   /* apague esta linha e a de baixo e o header volta a ocupar a posição de cima */
+			grid-row-end:4;
+			/* OUTRA FORMA
+				Ou vc poderia colocar estes mesmos grids de uma forma mais simples
+				daria no mesmo comportamento.
+				
+				grid-column: 1/3;
+				grid-row: 3/4;
+
+				Bem mais simples!
+			*/
+
+			/* OUTRA FORMA
+				APLICANDO AS AREAS CRIADAS NA CLASSE CONTAINER AQUI NO CSS
+				grid-area: h; -- interessante que se você deseja que outra div ocupe esta área basta trocar a letra 'h' por outra que foi criada.
+			*/
+		}
+		main{
+			background:blue;
+			grid-column-start: 1; /*setando a posição do main*/
+			grid-column-end: 2;   /*setando a posição do main*/
+			/* OUTRA FORMA
+				Ou vc poderia colocar estes mesmos grids de uma forma mais simples
+				daria no mesmo comportamento.
+				
+				grid-column: 1/2;
+
+				Bem mais simples!
+			*/
+
+			/* OUTRA FORMA
+				APLICANDO AS AREAS CRIADAS NA CLASSE CONTAINER AQUI NO CSS
+				grid-area: main;
+			*/
+
+		}
+		aside{
+			background:green;
+			grid-column-start: 2;
+			grid-column-end: 3;
+
+			/* OUTRA FORMA
+				Ou vc poderia colocar estes mesmos grids de uma forma mais simples
+				daria no mesmo comportamento.
+				
+				grid-column: 2/3;
+
+				Bem mais simples!
+			*/
+			/* OUTRA FORMA
+				APLICANDO AS AREAS CRIADAS NA CLASSE CONTAINER AQUI NO CSS
+				grid-area: aside;
+			*/
+		}
+		footer{
+			background:red;
+			grid-column-start: 1;
+			grid-column-end: 3;
+
+			/* OUTRA FORMA
+				Ou vc poderia colocar estes mesmos grids de uma forma mais simples
+				daria no mesmo comportamento.
+				
+				grid-column: 1/3;
+
+				Bem mais simples!
+			*/
+			/* OUTRA FORMA
+				APLICANDO AS AREAS CRIADAS NA CLASSE CONTAINER AQUI NO CSS
+				grid-area: footer;
+			*/
+		}
+
+		.container{
+			display:grid;
+			grid-template-columns: 3fr 1fr;
+			grid-template-rows: 20vh 70vh 10vh;
+
+			/* USANDO AREAS */
+			grid-template-areas: "header header"  /* vc pode usar so uma letra por ex. grid-template-areas: "h h" */
+								 "main main"
+								"footer footer"  /* e depis de ter criado isto vc precis aplicar no css */
+
+			/* USANDO ESPAÇAMENTO */
+			*grid-gap: 20px; /* ou coloca da forma como está abaixo, da no mesmo */
+			*grid-row-gap: 20px;
+			*grid-column-gap: 50px;
+		}
+
+	</style>
+</head>
+<body>
+	<!--
+		CSS GRID
+
+		## GRID 
+		- Bimencional
+		- Divisão de toda a página em linhas e colunas
+		- Colocar elementos oinde quiser nesta divisão
+
+		---
+
+		## GRID OU FLEXBOX
+		- Grid: duas dimensões (coluna e linha)
+		- Flexbox: uma dimensão (ou coluna ou linha)
+		- Um complementa o trabalho do outro
+		- Verificar navegadores que aceitam Grid
+		
+		-----
+
+		## PROPRIEDADES
+
+		Vamos separar em dois grupos:
+		`container` e `item(s)`
+
+		### CONTAINER
+
+		- display: grid;         -- iniciar programa falando que é um grid
+		- grid-template-columns; -- quantas colunas o grid possui
+		- grid-template-rows;    -- quantas linhas
+		- grid-gap               -- fala sobre os espaçamentos nas linhas e colunas   
+			- grid-row-gap
+			- grid-column-gap
+		- grid-template-areas;   -- delimitar áreas. 
+
+		... e mais 4 propriedades e **alimentos**
+
+		### ITEM(s)
+
+		- grid-column            -- colocar o item na determinada coluna
+			- grid-column-start   
+			- grid-column-end
+		- grid-row               -- onde fica na nossa linha
+			- grid-row-start
+			- grid-row-end
+		- grid-area              -- onde ficaria na nossa área
+
+		... e mais 2 duas propriedades de **alinhamento **
+	-->
+	<div class="container">
+		<header><h1>O Ronald é Show!</h1></header>
+		<main><h1>Este layout foi criado em grid.</h1></main>
+		<aside></aside>
+		<footer></footer>
+	</div>
+</body>
+</html>
